@@ -10,12 +10,17 @@ class MainContainer extends Component {
 	}
 	getPokemon = async () => {
 		try {
-			const pokemon = await fetch('')
+			const pokemon = await fetch('https://pokeapi.co/api/v2/pokemon/')
 			const pokemonJson = await pokemon.json();
 			return pokemonJson
 		} catch (err) {
 			return err
 		}
+	}
+	componentDidMount(){
+		this.getPokemon().then((pokes) => {
+			console.log(pokes, 'here are the pokemons')
+		})
 	}
     render(){
         return(
