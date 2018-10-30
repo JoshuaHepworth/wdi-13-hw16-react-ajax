@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-
+import Pokemon from '../Pokemon'
 
 class MainContainer extends Component {
-	constructor(){
+		constructor(){
 		super();
 		this.state = {
 			pokemon: []
@@ -12,7 +12,8 @@ class MainContainer extends Component {
 		try {
 			const pokemon = await fetch('https://pokeapi.co/api/v2/pokemon/')
 			const pokemonJson = await pokemon.json();
-			return pokemonJson
+			const pokemonResults = pokemonJson.results
+			return pokemonResults
 		} catch (err) {
 			return err
 		}
@@ -20,11 +21,18 @@ class MainContainer extends Component {
 	componentDidMount(){
 		this.getPokemon().then((pokes) => {
 			console.log(pokes, 'here are the pokemons')
+
+			this.setState({
+				pokemon: pokes
+			})
 		})
 	}
     render(){
+    	// console.log(this.state)
         return(
-            <h1>Pokemon</h1>
+        	<div>
+             <Pokemon pokemon={this.state.pokemon}/>
+            </div>
         )
     }
 }

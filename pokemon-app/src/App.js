@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Login from './Login'
 import MainContainer from './MainContainer'
+import Pokemon from './Pokemon'
 
 class App extends Component {
   constructor(){
