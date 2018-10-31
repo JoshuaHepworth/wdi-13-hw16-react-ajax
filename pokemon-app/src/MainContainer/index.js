@@ -37,7 +37,9 @@ class MainContainer extends Component {
     	// console.log(this.state.pokemon)
         return(
         	<div>
+        	<h2> Welcome back<br/> {this.props.username}!</h2>
              <Pokemon pokemon={this.state.pokemon} />
+        	}
             </div>
         )
     }
