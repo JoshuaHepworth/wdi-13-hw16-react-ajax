@@ -1,37 +1,43 @@
 import React, { Component } from 'react';
-import Pokemon from '../Pokemon'
+import Pokemon from '../Pokemon';
 
 class MainContainer extends Component {
-		constructor(){
+	constructor(){
 		super();
 		this.state = {
+			name: '',
 			pokemon: []
-		}
+		};
 	}
-	getPokemon = async () => {
+	getPokemon = async (index) => {
 		try {
-			const pokemon = await fetch('https://pokeapi.co/api/v2/pokemon/')
+			const pokemon = await fetch('https://pokeapi.co/api/v2/pokemon/' +  index + '/');
 			const pokemonJson = await pokemon.json();
-			const pokemonResults = pokemonJson.results
-			return pokemonResults
+			return pokemonJson;
 		} catch (err) {
 			return err
 		}
 	}
 	componentDidMount(){
-		this.getPokemon().then((pokes) => {
-			console.log(pokes, 'here are the pokemons')
-
-			this.setState({
-				pokemon: pokes
+		for (let i = 1 ; i < 50; i++) {
+			this.getPokemon(i).then(async (pokemon) => {
+				try {
+					await this.state.pokemon.push(pokemon);
+					this.setState({
+						pokemon: this.state.pokemon
+					})
+					console.log(`this.state: `, this.state.pokemon[0].name);
+				} catch (err) {
+				}
 			})
-		})
-	}
+		}
+
+		}
     render(){
-    	// console.log(this.state)
+    	console.log(this.state.pokemon)
         return(
         	<div>
-             <Pokemon pokemon={this.state.pokemon}/>
+             <Pokemon pokemon={this.state.pokemon} />
             </div>
         )
     }
