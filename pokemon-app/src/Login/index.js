@@ -20,11 +20,17 @@ class Login extends Component {
 	}
     render(){
         return(
-        	<Form onSubmit={this.handleSubmit}>
-	        	 <Form.Input fluid icon="user" type="text" name="username"onChange={this.handleInput}value={this.state.username}placeholder="username"/>
-	        	 <Form.Input fluid icon="lock"type="text" name="password"onChange={this.handleInput}value={this.state.password}placeholder="password"/>
-	        	 <Button color="blue" type="submit">Login</Button>
-        	</Form>
+        	<Grid container columns={1} textAlign='center' verticalAlign='middle' style={{height: '100%'}}>
+    			<Grid.Column style={{maxWidth: 450}} >
+    			 <Segment color="blue">
+		        	<Form onSubmit={this.handleSubmit}>
+			        	 <Form.Input fluid icon="user" type="text" name="username"onChange={this.handleInput}value={this.state.username}placeholder="username"/>
+			        	 <Form.Input fluid icon="lock"type="text" name="password"onChange={this.handleInput}value={this.state.password}placeholder="password"/>
+			        	 <Button color="blue" type="submit">Login</Button>
+		        	</Form>
+		    	 </Segment>
+    		</Grid.Column>
+    	</Grid>    	
         )
     }
 }

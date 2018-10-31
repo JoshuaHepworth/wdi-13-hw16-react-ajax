@@ -5,7 +5,7 @@ class MainContainer extends Component {
 	constructor(){
 		super();
 		this.state = {
-			name: '',
+			// name: '',
 			pokemon: []
 		};
 	}
@@ -19,22 +19,22 @@ class MainContainer extends Component {
 		}
 	}
 	componentDidMount(){
-		for (let i = 1 ; i < 50; i++) {
+		for (let i = 1; i < 51; i++) {
 			this.getPokemon(i).then(async (pokemon) => {
 				try {
 					await this.state.pokemon.push(pokemon);
 					this.setState({
 						pokemon: this.state.pokemon
 					})
-					console.log(`this.state: `, this.state.pokemon[0].name);
+					// console.log('this.state: ', this.state.pokemon[0].name);
 				} catch (err) {
 				}
 			})
 		}
-		
+
 	}
     render(){
-    	console.log(this.state.pokemon)
+    	// console.log(this.state.pokemon)
         return(
         	<div>
              <Pokemon pokemon={this.state.pokemon} />

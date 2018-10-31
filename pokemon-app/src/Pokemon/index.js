@@ -4,7 +4,7 @@ import { Button, Form, Grid, Segment, Image } from 'semantic-ui-react';
 class Pokemon extends Component {
 
     render(){
-    	console.log(this.props.pokemon)
+    	// console.log(this.props.pokemon)
     	const pokemonList = this.props.pokemon.map((pokes, i) => {
 
     		return 	(
