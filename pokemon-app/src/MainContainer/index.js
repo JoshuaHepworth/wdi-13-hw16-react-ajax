@@ -31,8 +31,8 @@ class MainContainer extends Component {
 				}
 			})
 		}
-
-		}
+		
+	}
     render(){
     	console.log(this.state.pokemon)
         return(
