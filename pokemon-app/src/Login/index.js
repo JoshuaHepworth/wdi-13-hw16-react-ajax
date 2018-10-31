@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import { Button, Form, Grid, Segment } from 'semantic-ui-react';
 
 class Login extends Component {
 	constructor(){
@@ -20,11 +20,11 @@ class Login extends Component {
 	}
     render(){
         return(
-        	<form onSubmit={this.handleSubmit}>
-	        	 <input type="text" name="username"onChange={this.handleInput}value={this.state.username}placeholder="username"/>
-	        	 <input type="text" name="password"onChange={this.handleInput}value={this.state.password}placeholder="password"/>
-	        	 <input type="submit" value="Login"/>
-        	</form>
+        	<Form onSubmit={this.handleSubmit}>
+	        	 <Form.Input fluid icon="user" type="text" name="username"onChange={this.handleInput}value={this.state.username}placeholder="username"/>
+	        	 <Form.Input fluid icon="lock"type="text" name="password"onChange={this.handleInput}value={this.state.password}placeholder="password"/>
+	        	 <Button color="blue" type="submit">Login</Button>
+        	</Form>
         )
     }
 }
